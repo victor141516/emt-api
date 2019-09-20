@@ -74,12 +74,16 @@ if __name__ == '__main__':
 
     print(get_stop_info(args.bus_stop))
 else:
-    from flask import Flask, jsonify
+    from flask import Flask, jsonify, render_template
     app = Flask(__name__)
+
+    @app.route('/')
+    def root():
+        return render_template('index.html', error='Error :(')
 
     @app.route('/<stop>')
     def stop_info(stop):
         try:
-            return jsonify(get_stop_info(stop))
+            return render_template('stop.html', stops=get_stop_info(stop))
         except Exception as e:
-            return jsonify([])
+            return render_template('index.html', error='Error :(')
