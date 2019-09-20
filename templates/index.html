@@ -40,11 +40,10 @@
             border-radius: 0.4rem;
             font-size: 1rem;
             padding: 0.5rem 1rem;
-            color: #0e0e0e;
+            color: #f9f9f9;
             border: 0;
             outline: none;
             cursor: pointer;
-            box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15) inset 0 0 20px -14px black;
         }
 
         .error {
@@ -58,13 +57,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <script>
         function redirect() {
+            event.preventDefault();
             window.location = `${location.origin}/${document.getElementById('stop').value}`;
         }
     </script>
 </head>
 
 <body>
-    <form action="#" onsubmit="redirect()" class="container">
+    <form onsubmit="redirect();" class="container">
             <div class="input shadow">
                 <input type="number" name="stop" id="stop" placeholder="Stop number">
             </div>

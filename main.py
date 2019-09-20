@@ -79,7 +79,7 @@ else:
 
     @app.route('/')
     def root():
-        return render_template('index.html', error='Error :(')
+        return render_template('index.html')
 
     @app.route('/<stop>')
     def stop_info(stop):
